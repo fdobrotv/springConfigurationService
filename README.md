@@ -9,7 +9,17 @@ Gradle 6.6+
 http://localhost:8888
 
 ## Build and run
+
+### By docker-compose with discovery
+1 - Run `docker-compose up` of https://github.com/fdobrotv/springDiscoveryService
+
+2 - `docker-compose up`
+
+### By gradle
 `gradlew bootRun`
+
+### Build and publish docker image into registry
+`gradlew jib`
 
 ### TODO
 Add Spring Cloud Bus

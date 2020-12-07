@@ -1,0 +1,23 @@
+version: '3.7'
+
+networks:
+  backend:
+#    Uncomment this if have some run troubles
+#    external: true
+    name: backend
+    driver: bridge
+
+services:
+  gateway-service-1.com:
+    image: fdobrotv/configuration_service:0.2.0
+    hostname: 'configuration-service-1.com'
+    environment:
+      APPLICATION_NAME: configuration-service
+      SERVER_PORT: 8888
+      HOST_NAME: configuration-service-1.com
+      EUREKA_DEFAULT_ZONE: http://discovery-service-1.com:8761/eureka/,http://discovery-service-2.com:8762/eureka/,http://discovery-service-3.com:8763/eureka/
+      CONFIGURATION_SOURCE_GIT: https://github.com/fdobrotv/cloud_config.git
+    networks:
+      - backend
+    ports:
+      - "8888:8888"

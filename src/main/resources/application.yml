@@ -1,15 +1,15 @@
+server:
+  port: ${SERVER_PORT:8888}
+
 spring:
   application:
-    name: configuration-service
+    name: ${APPLICATION_NAME:configuration-service}
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/fdobrotv/cloud_config.git
+          uri: ${CONFIGURATION_SOURCE_GIT:https://github.com/fdobrotv/cloud_config.git}
           cloneOnStart: true
-
-server:
-  port: 8888
 
 eureka:
   instance:
@@ -18,5 +18,3 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_DEFAULT_ZONE:http://discovery-service-1.com:8761/eureka/}
-
-
