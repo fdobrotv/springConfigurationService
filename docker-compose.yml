@@ -8,7 +8,7 @@ networks:
     driver: bridge
 
 services:
-  gateway-service-1.com:
+  configuration-service-1.com:
     image: fdobrotv/configuration_service:0.2.0
     hostname: 'configuration-service-1.com'
     environment:
