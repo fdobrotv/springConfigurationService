@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: configuration-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/fdobrotv/cloud_config.git
+          cloneOnStart: true
+
+server:
+  port: 8888
+
+eureka:
+  instance:
+    hostname: ${HOST_NAME:configuration-service-1.com}
+    homePageUrl: http://${eureka.instance.hostname}/
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_DEFAULT_ZONE:http://discovery-service-1.com:8761/eureka/}
+
+
