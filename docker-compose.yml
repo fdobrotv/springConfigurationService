@@ -7,15 +7,21 @@ networks:
     name: backend
     driver: bridge
 
+x-config-app-name: &CONFIG_APP_NAME
+  fdobrotv/configuration_service:0.3.1
+
+x-eureka-zone: &EUREKA_ZONE
+  http://discovery-service-1.com:8761/eureka/,http://discovery-service-2.com:8762/eureka/,http://discovery-service-3.com:8763/eureka/
+
 services:
   configuration-service-1.com:
-    image: fdobrotv/configuration_service:0.2.0
+    image: *CONFIG_APP_NAME
     hostname: 'configuration-service-1.com'
     environment:
       APPLICATION_NAME: configuration-service
       SERVER_PORT: 8888
       HOST_NAME: configuration-service-1.com
-      EUREKA_DEFAULT_ZONE: http://discovery-service-1.com:8761/eureka/,http://discovery-service-2.com:8762/eureka/,http://discovery-service-3.com:8763/eureka/
+      EUREKA_DEFAULT_ZONE: *EUREKA_ZONE
       CONFIGURATION_SOURCE_GIT: https://github.com/fdobrotv/cloud_config.git
     networks:
       - backend

@@ -26,9 +26,11 @@ http://localhost:8888
 
 ### TODO
 Add Spring Cloud Bus
+Add Hashicorp Vault
 
 ### Additional Links
 https://medium.com/@kirill.sereda/spring-cloud-bus-wtf-f904079cca84
+https://www.javainuse.com/spring/cloud-vault
 
 ### Spring Initializr recipe
 https://start.spring.io/#!type=gradle-project&language=java&platformVersion=2.4.0.RELEASE&packaging=jar&jvmVersion=15&groupId=com.fdobrotv&artifactId=configuration_service&name=configuration_service&description=Base%20configuration%20service&packageName=com.fdobrotv.configurationService&dependencies=cloud-config-server
