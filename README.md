@@ -34,3 +34,16 @@ https://www.javainuse.com/spring/cloud-vault
 
 ### Spring Initializr recipe
 https://start.spring.io/#!type=gradle-project&language=java&platformVersion=2.4.0.RELEASE&packaging=jar&jvmVersion=15&groupId=com.fdobrotv&artifactId=configuration_service&name=configuration_service&description=Base%20configuration%20service&packageName=com.fdobrotv.configurationService&dependencies=cloud-config-server
+
+###Vault instructions
+docker pull vault
+docker run --cap-add=IPC_LOCK \
+-e 'VAULT_DEV_ROOT_TOKEN_ID=00000000-0000-0000-0000-000000000000' \
+-p 8200:8200 \
+-v /tmp/vault/logs \
+--name my-vault vault
+docker exec -it my-vault /bin/sh
+export VAULT_TOKEN="00000000-0000-0000-0000-000000000000"
+export VAULT_ADDR="http://127.0.0.1:8200"
+vault kv put secret/client-service db.password=qwerty
+
