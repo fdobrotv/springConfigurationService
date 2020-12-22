@@ -43,7 +43,7 @@ docker run --cap-add=IPC_LOCK \
 -v /tmp/vault/logs \
 --name my-vault vault
 docker exec -it my-vault /bin/sh
-export VAULT_TOKEN="00000000-0000-0000-0000-000000000000"
+export VAULT_TOKEN="ffa6f30b-041f-445a-9beb-3b42927fab1a"
 export VAULT_ADDR="http://127.0.0.1:8200"
 vault kv put secret/client-service db.password=qwerty
 
