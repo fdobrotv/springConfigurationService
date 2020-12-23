@@ -38,7 +38,7 @@ https://start.spring.io/#!type=gradle-project&language=java&platformVersion=2.4.
 ###Vault instructions
 docker pull vault
 docker run --cap-add=IPC_LOCK \
--e 'VAULT_DEV_ROOT_TOKEN_ID=00000000-0000-0000-0000-000000000000' \
+-e 'VAULT_DEV_ROOT_TOKEN_ID=ffa6f30b-041f-445a-9beb-3b42927fab1a' \
 -p 8200:8200 \
 -v /tmp/vault/logs \
 --name my-vault vault
