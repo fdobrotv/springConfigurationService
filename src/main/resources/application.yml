@@ -3,6 +3,7 @@ server:
 
 spring:
   profiles:
+    #Will use vault and git config profiles
     active: git,vault
   application:
     name: ${APPLICATION_NAME:configuration-service}
