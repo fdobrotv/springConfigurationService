@@ -15,19 +15,12 @@ spring:
         vault:
           order: 1
           kvVersion: 2
+          host: ${VAULT_HOST:localhost}
         git:
           order: 2
           uri: ${CONFIGURATION_SOURCE_GIT:https://github.com/fdobrotv/cloud_config.git}
           cloneOnStart: true
 
-eureka:
-  instance:
-    hostname: ${HOST_NAME:configuration-service-1.com}
-    homePageUrl: http://${eureka.instance.hostname}/
-    lease-renewal-interval-in-seconds: 10 # Default is 30
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_DEFAULT_ZONE:http://discovery-service-1.com:8761/eureka/}
 
 #Discovery service debug
 #logging.level:
