@@ -15,7 +15,7 @@ spring:
         vault:
           order: 1
           kvVersion: 2
-          host: ${VAULT_HOST:localhost}
+          host: ${VAULT_HOST:vault-1.com}
         git:
           order: 2
           uri: ${CONFIGURATION_SOURCE_GIT:https://github.com/fdobrotv/cloud_config.git}
