@@ -1,0 +1,12 @@
+replicaCount: 1
+servicePort: 8888
+containerPort: 8888
+image:
+  name: fdobrotv/configuration_service:0.3.3
+  pullPolicy: Never
+app:
+  name: configuration-service
+  profile: local,vault,git
+  tracingServiceHost: tracing-service
+  configurationSourceGit: https://github.com/fdobrotv/cloud_config.git
+  vaultHost: 192.168.49.1 # host gateway (you can reach host machine inside minikube by using this IP address)

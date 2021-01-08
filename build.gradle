@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.fdobrotv'
-version = '0.3.1'
+version = '0.3.3'
 sourceCompatibility = '15'
 
 repositories {
@@ -25,6 +25,8 @@ dependencies {
 	//Discovery service client
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
+	//Registration/discovery service client
+	implementation 'org.springframework.cloud:spring-cloud-kubernetes-client-discovery'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
