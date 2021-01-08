@@ -23,7 +23,7 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-config-server'
 
 	//Discovery service client
-	//implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
 	//Registration/discovery service client
 	implementation 'org.springframework.cloud:spring-cloud-kubernetes-client-discovery'
