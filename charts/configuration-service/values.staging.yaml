@@ -9,4 +9,4 @@ app:
   profile: stage,vault
   tracingServiceHost: tracing-service
   configurationSourceGit: https://github.com/fdobrotv/cloud_config.git
-  vaultHost: 10.0.2.2 # virtualbox default gateway ( to access host machine from virtualbox )
+  vaultHost: 192.168.49.1 # host gateway (you can reach host machine inside minikube by using this IP address)
