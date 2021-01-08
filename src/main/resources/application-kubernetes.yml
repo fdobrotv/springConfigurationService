@@ -20,10 +20,6 @@ spring:
           order: 2
           uri: ${CONFIGURATION_SOURCE_GIT:https://github.com/fdobrotv/cloud_config.git}
           cloneOnStart: true
-    kubernetes:
-      enabled: false
-      discovery:
-        enabled: false
 
 
 #Discovery service debug
