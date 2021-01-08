@@ -13,7 +13,8 @@ http://localhost:8888
 
 ## Build and run
 
-if you start without `kubernetes` spring profile, eureka discovery client will be used, otherwise kubernetes
+If you start without `kubernetes` spring profile, eureka discovery client will be used, otherwise kubernetes.
+Obviously you can not use both discovery client implementation together
 
 ### By docker-compose with discovery
 1 - Run `docker-compose up` of https://github.com/fdobrotv/springDiscoveryService
