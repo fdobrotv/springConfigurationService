@@ -8,6 +8,15 @@ spring:
   application:
     name: ${APPLICATION_NAME:configuration-service}
   cloud:
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+    stream:
+      kafka:
+        binder:
+          zkNodes: zookeeper-service
+          brokers: message-broker-service
     config:
       server:
         #TODO: the server should configure itself from its own remote repository

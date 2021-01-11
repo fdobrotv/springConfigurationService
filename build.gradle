@@ -22,6 +22,10 @@ ext {
 dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-config-server'
 
+	//Message bus and config propagation
+	implementation('org.springframework.cloud:spring-cloud-starter-bus-kafka')
+	implementation 'org.springframework.cloud:spring-cloud-config-monitor'
+
 	//Discovery service client
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
