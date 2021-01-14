@@ -20,8 +20,33 @@ spring:
           order: 2
           uri: ${CONFIGURATION_SOURCE_GIT:https://github.com/fdobrotv/cloud_config.git}
           cloneOnStart: true
+    bus:
+      id: ${spring.application.name}:${spring.profiles.active}:${random.uuid}
+      enabled: true
+      refresh:
+        enabled: true
+    stream:
+      kafka:
+        binder:
+          zkNodes: zookeeper-service
+          brokers: message-broker-service
 
+eureka:
+  client:
+    enabled: false
 
+#For POST /actuator/bus-refresh and OTHER!
+#TODO: think about security
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - bus-refresh
+          - bus-env
 #Discovery service debug
 #logging.level:
 #  com.netflix.discovery: trace

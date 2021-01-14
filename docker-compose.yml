@@ -25,12 +25,14 @@ services:
       HOST_NAME: configuration-service-1.com
       EUREKA_DEFAULT_ZONE: *EUREKA_ZONE
       CONFIGURATION_SOURCE_GIT: https://github.com/fdobrotv/cloud_config.git
+      SPRING_PROFILES_ACTIVE: git,vault
     networks:
       - backend
     ports:
       - "8888:8888"
     depends_on:
       - vault-1.com
+
   vault-1.com:
     image: vault
     hostname: 'vault-1.com'
@@ -42,6 +44,7 @@ services:
       - "8200:8200"
     networks:
       - backend
+
   vault-config:
     image: vault
     environment:
