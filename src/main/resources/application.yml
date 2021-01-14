@@ -8,6 +8,16 @@ spring:
   application:
     name: ${APPLICATION_NAME:configuration-service}
   cloud:
+    bus:
+      id: ${spring.application.name}:${spring.profiles.active}:${random.uuid}
+      enabled: true
+      refresh:
+        enabled: true
+    stream:
+      kafka:
+        binder:
+          zkNodes: zookeeper-service
+          brokers: message-broker-service
     config:
       server:
         #TODO: the server should configure itself from its own remote repository
@@ -34,6 +44,18 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_DEFAULT_ZONE:http://discovery-service-1.com:8761/eureka/}
 
+#For POST /actuator/bus-refresh and OTHER!
+#TODO: think about security
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include:
+        - refresh
+        - bus-refresh
+        - bus-env
 
 #Discovery service debug
 #logging.level:
