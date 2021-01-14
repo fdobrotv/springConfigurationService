@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.fdobrotv'
-version = '0.3.1'
+version = '0.4.3'
 sourceCompatibility = '15'
 
 repositories {
@@ -20,11 +20,21 @@ ext {
 }
 
 dependencies {
+	//Main dependency
 	implementation 'org.springframework.cloud:spring-cloud-config-server'
+
+	//Message bus and config propagation
+	implementation('org.springframework.cloud:spring-cloud-starter-bus-kafka')
+	implementation 'org.springframework.cloud:spring-cloud-config-monitor'
 
 	//Discovery service client
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
+	//Actuator
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	//Registration/discovery service client
+	implementation 'org.springframework.cloud:spring-cloud-kubernetes-client-discovery'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

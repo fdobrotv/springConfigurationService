@@ -1,0 +1,27 @@
+server:
+  port: ${SERVER_PORT:8888}
+
+spring:
+  profiles:
+    #Will use vault and git config profiles
+    active: git,vault
+  application:
+    name: ${APPLICATION_NAME:configuration-service}
+  cloud:
+    config:
+      server:
+        #TODO: the server should configure itself from its own remote repository
+        #bootstrap: true
+        vault:
+          order: 1
+          kvVersion: 2
+          host: ${VAULT_HOST:vault-1.com}
+        git:
+          order: 2
+          uri: ${CONFIGURATION_SOURCE_GIT:https://github.com/fdobrotv/cloud_config.git}
+          cloneOnStart: true
+
+
+#Discovery service debug
+#logging.level:
+#  com.netflix.discovery: trace

@@ -2,16 +2,38 @@ server:
   port: ${SERVER_PORT:8888}
 
 spring:
+  profiles:
+    #Will use vault and git config profiles
+    active: git,vault
   application:
     name: ${APPLICATION_NAME:configuration-service}
   cloud:
+    bus:
+      id: ${spring.application.name}:${spring.profiles.active}:${random.uuid}
+      enabled: true
+      refresh:
+        enabled: true
+    stream:
+      kafka:
+        binder:
+          zkNodes: zookeeper-service
+          brokers: message-broker-service
     config:
       server:
         #TODO: the server should configure itself from its own remote repository
         #bootstrap: true
+        vault:
+          order: 1
+          kvVersion: 2
+          host: ${VAULT_HOST:vault-1.com}
         git:
+          order: 2
           uri: ${CONFIGURATION_SOURCE_GIT:https://github.com/fdobrotv/cloud_config.git}
           cloneOnStart: true
+    kubernetes:
+      enabled: false
+      discovery:
+        enabled: false
 
 eureka:
   instance:
@@ -21,6 +43,19 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_DEFAULT_ZONE:http://discovery-service-1.com:8761/eureka/}
+
+#For POST /actuator/bus-refresh and OTHER!
+#TODO: think about security
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include:
+        - refresh
+        - bus-refresh
+        - bus-env
 
 #Discovery service debug
 #logging.level:
