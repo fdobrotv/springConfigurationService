@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.fdobrotv'
-version = '0.4.4'
+version = '0.4.9'
 sourceCompatibility = '15'
 
 repositories {

@@ -28,7 +28,6 @@ spring:
     stream:
       kafka:
         binder:
-          zkNodes: zookeeper-service
           brokers: message-broker-service
 
 eureka:
